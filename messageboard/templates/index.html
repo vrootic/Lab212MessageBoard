@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <link rel="stylesheet" type=text/css href="{{ url_for('static', filename='style.css') }}">
+  </head>
+  <body>
+    <div class="container">
+      <h1>Lab212 留言板</h1>
+      <div class="message-form">
+        <form class="form" action='/message', method='post'>
+          <label class="name-text">Name:</label></br>
+          <input type="text" name="name" /></br>
+          <label class="message-text">Message:</label></br>
+          <textarea name="message" rows="10" cols="45"></textarea></br>
+          <div class="pull-right">
+            <button class="submit-btn" type="submit">submit</button>
+          </div>
+        </form>
+      </div>
+      <div class="message-log">
+            {% for m in messages %}
+              <div class="message-window">
+                <div class="message-text">{{m[1]}}</div><br/>
+                <div class="by-text">{{m[3]}} - by {{m[2]}}</div>
+              </div>
+            {% endfor%}
+      </div>
+    </div>
+  </body>
+</html>
