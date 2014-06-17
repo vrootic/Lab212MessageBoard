@@ -12,7 +12,7 @@ db_config = {
 
 def connect_db():
     db = MySQLdb.connect(db_config["host"], db_config["user"],
-        db_config["passwd"], db_config["db"])
+        db_config["passwd"], db_config["db"], charset='utf8')
     return db
 
 @app.route("/db/version")
